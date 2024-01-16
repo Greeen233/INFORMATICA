@@ -11,7 +11,7 @@
 <div id="counter"></div>
 
 <script>
-    
+    // Funzione che gestisce il contatore e la stampa della tabellina
     function startCounter() {
         var counter = 1;
         var interval = setInterval(function() {
@@ -27,14 +27,14 @@
 
     // Funzione per stampare la tabellina del 1 al 10
     function printMultiplicationTable() {
-        var table = '<br><br>Tabellina del 1 al 10:<br>';
+        var table = '<br><br>Tabellina del ' + counter + ':<br>';
         for (var i = 1; i <= 10; i++) {
-            table += i + ' x ' + counter + ' = ' + (i * counter) + '<br>';
+            table += counter + ' x ' + i + ' = ' + (counter * i) + '<br>';
         }
         document.getElementById('counter').innerHTML += table;
     }
 
-    
+    // Avvia il contatore quando la pagina è caricata
     window.onload = function() {
         startCounter();
     };
