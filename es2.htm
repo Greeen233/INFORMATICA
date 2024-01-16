@@ -4,34 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatore e Tabellina</title>
+    <title>Contatore e Tabelline</title>
 </head>
 <body>
 
-<div id="counter"></div>
+<div id="output"></div>
 
 <script>
-    // Funzione che gestisce il contatore e la stampa della tabellina
+    // Funzione che gestisce il contatore e la stampa delle tabelline
     function startCounter() {
         var counter = 1;
         var interval = setInterval(function() {
-            document.getElementById('counter').innerHTML = 'Contatore: ' + counter;
+            document.getElementById('output').innerHTML += 'Contatore: ' + counter + '<br>';
             counter++;
 
             if (counter > 5) {
                 clearInterval(interval);
-                printMultiplicationTable(counter);
+                printMultiplicationTables();
             }
         }, 1000);
     }
 
-    // Funzione per stampare la tabellina del 1 al 10
-    function printMultiplicationTable(counter) {
-        var table = '<br><br>Tabellina del ' + counter + ':<br>';
+    // Funzione per stampare le tabelline del 1 al 10
+    function printMultiplicationTables() {
         for (var i = 1; i <= 10; i++) {
-            table += counter + ' x ' + i + ' = ' + (counter * i) + '<br>';
+            printMultiplicationTable(i);
         }
-        document.getElementById('counter').innerHTML += table;
+    }
+
+    // Funzione per stampare la tabellina del 1 al 10 per un dato moltiplicatore
+    function printMultiplicationTable(multiplier) {
+        var table = '<br>Tabellina del ' + multiplier + ':<br>';
+        for (var i = 1; i <= 10; i++) {
+            table += i + ' x ' + multiplier + ' = ' + (i * multiplier) + '<br>';
+        }
+        document.getElementById('output').innerHTML += table;
     }
 
     // Avvia il contatore quando la pagina è caricata
