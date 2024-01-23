@@ -15,11 +15,11 @@
       <div class="col-md-6 offset-md-3">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Number Generator</h5>
+            <h5 class="card-title">Generatori di numeri</h5>
             <form>
               <div class="mb-3">
-                <label for="inputNumber" class="form-label">Enter a number:</label>
-                <input type="number" class="form-control" id="inputNumber" placeholder="Enter a number">
+                <label for="inputNumber" class="form-label">Scegli un numero:</label>
+                <input type="number" class="form-control" id="inputNumber" placeholder="Scegli un numero">
               </div>
               <button type="button" class="btn btn-primary" onclick="generateNumbers()">Generate</button>
             </form>
@@ -43,7 +43,7 @@
         output += '<br>10% of input: ' + (inputNumber * 0.1);
         document.getElementById("output").innerHTML = output;
       } else {
-        alert("Please enter a valid number.");
+        alert("Perfavore, immetti un numero valido.");
       }
     }
   </script>
