@@ -12,7 +12,7 @@
       width: 20px;
       height: 20px;
       border: 1px solid black;
-      padding: 2px;
+      margin: 2px;
     }
   </style>
 </head>
@@ -24,24 +24,27 @@
   <script>
     var tabella = document.getElementById("tabella");
 
-    var rigaCorrente = null;
-    var righePerColonna = 10;
-
     for (var i = 1; i <= 100; i++) {
-      // Se inizia una nuova riga, crea una nuova riga nella tabella
-      if (i % righePerColonna === 1) {
-        rigaCorrente = tabella.insertRow();
+      // Se è il primo elemento della riga, crea una nuova riga nella tabella
+      if ((i - 1) % 10 === 0) {
+        var nuovaRiga = tabella.insertRow();
       }
 
-      var cella = rigaCorrente.insertCell();
+      var cella = nuovaRiga.insertCell();
+
+      var quadrato = document.createElement("div");
+      quadrato.style.width = "10px";
+      quadrato.style.height = "10px";
+      quadrato.style.margin = "2px";
+      quadrato.style.border = "1px solid black";
 
       if (i % 2 === 0) {
-        cella.style.backgroundColor = "#d3d3d3"; // grigio chiaro
-        cella.style.border = "2px solid black";
+        quadrato.style.backgroundColor = "#d3d3d3"; // grigio chiaro
       } else {
-        cella.style.backgroundColor = "#808080"; // grigio scuro
-        cella.style.border = "2px solid black";
+        quadrato.style.backgroundColor = "#808080"; // grigio scuro
       }
+
+      cella.appendChild(quadrato);
     }
   </script>
 
