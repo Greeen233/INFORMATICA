@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabella con Quadrati</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    td {
+      width: 20px;
+      height: 20px;
+      border: 1px solid black;
+      padding: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <table id="tabella">
+  </table>
+
+  <script>
+    var tabella = document.getElementById("tabella");
+
+    var rigaCorrente = null;
+    var righePerColonna = 10;
+
+    for (var i = 1; i <= 100; i++) {
+      // Se inizia una nuova riga, crea una nuova riga nella tabella
+      if (i % righePerColonna === 1) {
+        rigaCorrente = tabella.insertRow();
+      }
+
+      var cella = rigaCorrente.insertCell();
+
+      if (i % 2 === 0) {
+        cella.style.backgroundColor = "#d3d3d3"; // grigio chiaro
+        cella.style.border = "2px solid black";
+      } else {
+        cella.style.backgroundColor = "#808080"; // grigio scuro
+        cella.style.border = "2px solid black";
+      }
+    }
+  </script>
+
+</body>
+</html>
