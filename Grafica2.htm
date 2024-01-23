@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generatore di Div</title>
+  <style>
+    .generated-div {
+      width: 10px;
+      height: 10px;
+      border: 1px solid black;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <label for="numeroDiv">Inserisci il numero di div:</label>
+  <input type="number" id="numeroDiv" min="1" value="1">
+  <button onclick="generaDiv()">Genera Div</button>
+
+  <div id="container"></div>
+
+  <script>
+    function generaDiv() {
+      var numeroDiv = document.getElementById("numeroDiv").value;
+
+      var container = document.getElementById("container");
+
+     
+      container.innerHTML = '';
+
+      for (var i = 0; i < numeroDiv; i++) {
+        // Crea un nuovo elemento div
+        var nuovoDiv = document.createElement("div");
+
+        nuovoDiv.className = "generated-div";
+
+        var coloreCasuale = generaColoreCasuale();
+        nuovoDiv.style.backgroundColor = coloreCasuale;
+
+        container.appendChild(nuovoDiv);
+      }
+    }
+
+    function generaColoreCasuale() {
+      var colore = "#";
+      var caratteriHex = "0123456789ABCDEF";
+      for (var i = 0; i < 6; i++) {
+        colore += caratteriHex[Math.floor(Math.random() * 16)];
+      }
+      return colore;
+    }
+  </script>
+
+</body>
+</html>
